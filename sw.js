@@ -1,4 +1,4 @@
-const CACHE='athar-static-v10';
+const CACHE='athar-static-v11';
 const FILES=['./','./index.html','./athar_icon.webp','./athar_his.png','./manifest.webmanifest','./icon-180.png','./icon-192.png','./icon-512.png'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(FILES.map(url=>new Request(url,{cache:'reload'}))))));
 self.addEventListener('activate',event=>event.waitUntil((async()=>{for(const key of await caches.keys())if(key.startsWith('athar-static-')&&key!==CACHE)await caches.delete(key);await self.clients.claim()})()));
